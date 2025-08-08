@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ana Sayfa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #1e3a8a, #000000);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .invitation-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .active {
+            background-color: #3b82f6;
+            border-radius: 4px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Menü -->
+    <nav class="bg-gray-900 p-4 fixed w-full top-0 z-10 shadow-lg">
+        <div class="container mx-auto">
+            <ul class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-6 justify-center items-center">
+                <li><a href="index.html" class="text-white hover:text-blue-400 px-3 py-2 active text-sm md:text-base"
+                        aria-current="page">Ana Sayfa</a></li>
+                <li><a href="pages/kina.html" class="text-white hover:text-pink-400 px-3 py-2 text-sm md:text-base">Kına
+                        Tarihi</a></li>
+                <li><a href="pages/salon.html"
+                        class="text-white hover:text-teal-300 px-3 py-2 text-sm md:text-base">Düğün Tarihi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- İçerik -->
+    <section class="container mx-auto mt-20 md:mt-24 p-4 md:p-6 text-center flex flex-col items-center">
+        <div class="invitation-card w-full max-w-lg md:max-w-2xl">
+            <h1 class="text-2xl md:text-4xl font-serif font-bold mb-4 md:mb-6 text-yellow-300"
+                style="font-family: 'Playfair Display', serif;">FATMA ve FATİH’in Özel Günü</h1>
+            <img src="images/davetiye.gif" alt="Fatma ve Fatih'in Düğün Davetiyesi" class="mb-4">
+            <p class="text-lg md:text-2xl font-serif mb-2 md:mb-4" style="font-family: 'Playfair Display', serif;">FATMA
+                ve FATİH</p>
+            <p class="text-base md:text-lg">Sizleri bu mutlu günümüzde aramızda görmekten mutluluk duyarız!</p>
+            <p class="text-base md:text-lg mt-2 md:mt-4">Kına Gecesi ve Düğün Töreni<br>Yer: Yıldız Park Düğün
+                Salonları, Sincan</p>
+            <p class="text-sm md:text-lg mt-2 md:mt-4 italic">Detaylar için menüden ilgili sayfaları ziyaret
+                edebilirsiniz</p>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Yıldız+Park+Düğün+Salonları,Sincan" target="_blank"
+            rel="noopener"
+            class="mt-4 md:mt-6 inline-block bg-blue-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-sm md:text-base">Google
+            Maps ile Navigasyon</a>
+    </section>
+
+    <!-- Active sınıfı için JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll("nav ul li a");
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute("href").split('/').pop();
+                if (currentPage === linkPath) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
